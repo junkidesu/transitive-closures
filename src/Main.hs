@@ -1,7 +1,8 @@
 module Main (main) where
 
-import Data.Matrix (Matrix, fromLists)
-import Warshall (warshall)
+import           Data.Matrix       (Matrix, fromLists)
+import           TransitiveClosure (transitiveClosure)
+import           Warshall          (warshall)
 
 --------------------
 -- Example matrices
@@ -29,6 +30,24 @@ m2 = fromLists
 
 main :: IO ()
 main = do
+  putStrLn "Naive algorithm:"
+
+  putStrLn "-------------"
+
+  putStrLn "# Example 1:"
+  print $ transitiveClosure m1
+
+  putStrLn "-------------"
+
+  putStrLn "# Example 2:"
+  print $ transitiveClosure m2
+
+  putStrLn "-------------"
+
+  putStrLn "Warshall-Roy Algorithm:"
+
+  putStrLn "-------------"
+
   putStrLn "# Example 1:"
   print $ warshall m1
 
@@ -36,3 +55,4 @@ main = do
 
   putStrLn "# Example 2:"
   print $ warshall m2
+

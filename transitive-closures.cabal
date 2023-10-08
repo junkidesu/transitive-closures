@@ -1,0 +1,35 @@
+cabal-version:       2.2
+
+name:                transitive-closures
+version:             0.1.0.0
+-- synopsis:
+-- description:
+homepage:            https://github.com/githubuser/transitive-closures#readme
+license:             BSD-3-Clause
+license-file:        LICENSE
+author:              Anvar Sheryatullayev
+maintainer:          alvaro.sh03@gmail.com
+copyright:           2023 Anvar Sheryatullayev
+category:            Web
+build-type:          Simple
+extra-source-files:  README.md
+                     CHANGELOG.md
+
+executable transitive-closures
+  hs-source-dirs:      src
+  main-is:             Main.hs
+  other-modules:       TransitiveClosure
+                     , Warshall
+  default-language:    Haskell2010
+  build-depends:       base >= 4.7 && < 5
+                     , matrix
+                     , vector
+  ghc-options:         -Wall
+                       -Wcompat
+                       -Widentities
+                       -Wincomplete-record-updates
+                       -Wincomplete-uni-patterns
+                       -Wmissing-export-lists
+                       -Wmissing-home-modules
+                       -Wpartial-fields
+                       -Wredundant-constraints

@@ -1,35 +1,59 @@
-cabal-version:       2.2
+cabal-version: 2.2
 
-name:                transitive-closures
-version:             0.1.0.0
--- synopsis:
--- description:
-homepage:            https://github.com/githubuser/transitive-closures#readme
-license:             BSD-3-Clause
-license-file:        LICENSE
-author:              Anvar Sheryatullayev
-maintainer:          alvaro.sh03@gmail.com
-copyright:           2023 Anvar Sheryatullayev
-category:            Web
-build-type:          Simple
-extra-source-files:  README.md
-                     CHANGELOG.md
+-- This file has been generated from package.yaml by hpack version 0.36.0.
+--
+-- see: https://github.com/sol/hpack
 
-executable transitive-closures
-  hs-source-dirs:      src
-  main-is:             Main.hs
-  other-modules:       TransitiveClosure
-                     , Warshall
-  default-language:    Haskell2010
-  build-depends:       base >= 4.7 && < 5
-                     , matrix
-                     , vector
-  ghc-options:         -Wall
-                       -Wcompat
-                       -Widentities
-                       -Wincomplete-record-updates
-                       -Wincomplete-uni-patterns
-                       -Wmissing-export-lists
-                       -Wmissing-home-modules
-                       -Wpartial-fields
-                       -Wredundant-constraints
+name:           transitive-closures
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/junkidesu/transitive-closures#readme>
+homepage:       https://github.com/junkidesu/transitive-closures#readme
+bug-reports:    https://github.com/junkidesu/transitive-closures/issues
+author:         Anvar Sheryatullayev
+maintainer:     alvaro.sh03@gmail.com
+copyright:      2024 Anvar Sheryatullayev
+license:        BSD-3-Clause
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/junkidesu/transitive-closures
+
+library
+  exposed-modules:
+      Algorithms.TransitiveClosure.Naive
+      Algorithms.TransitiveClosure.Warshall
+  other-modules:
+      Paths_transitive_closures
+  autogen-modules:
+      Paths_transitive_closures
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+    , matrix
+    , optparse-applicative
+    , vector
+  default-language: Haskell2010
+
+executable transitive-closures-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_transitive_closures
+  autogen-modules:
+      Paths_transitive_closures
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , matrix
+    , optparse-applicative
+    , transitive-closures
+    , vector
+  default-language: Haskell2010
